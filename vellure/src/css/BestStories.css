@@ -1,0 +1,24 @@
+/* 전체, 텍스트 */
+.bestStories {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1280px;
+  padding: 20px;
+}
+
+.typeName {
+  width: 100%;
+  padding: 3px;
+}
+
+.typeName h1 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+/* 게시글 */
+.bestImgs {
+  display: flex;
+  gap: 10px;
+}

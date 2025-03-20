@@ -3,6 +3,7 @@ import Header from "./Header";
 import Carosel from "./Carosel";
 import Footer from "./Footer";
 import Stories from "./Stories";
+import BestStories from "./BestStories";
 
 const MainPage = () => {
   return (
@@ -16,6 +17,9 @@ const MainPage = () => {
 
         {/* Today’s Stories */}
         <Stories />
+
+        {/* Best Stories */}
+        <BestStories />
 
         {/* footer */}
         <Footer />

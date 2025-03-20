@@ -26,10 +26,14 @@
   gap: 20px;
 }
 
-.todayImage,
+.todayImage {
+  flex: 1;
+  max-width: 40%;
+}
+
 .subPhotosContainer {
   flex: 1;
-  max-width: 50%;
+  max-width: 60%;
 }
 
 .subPhotosContainer {
@@ -39,6 +43,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .stories {
+    margin: 50px 0;
+  }
+
   .typeName h1 {
     font-size: 28px;
   }
@@ -47,14 +55,13 @@
     flex-direction: column;
   }
 
-  .todayImage,
-  .todayBox {
+  .todayImage {
     max-width: 100%;
   }
 
   .subPhotosContainer {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    max-width: 100%;
   }
 }

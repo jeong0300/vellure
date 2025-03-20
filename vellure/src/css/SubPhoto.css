@@ -1,2 +1,64 @@
-.todayBox {
+/* 공통 */
+.subTodayTexts {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.subTodayTexts p {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.subTodayTexts span {
+  font-size: 12px;
+  color: gray;
+}
+
+/* today */
+.todayBox img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* best */
+.bestBox {
+  flex: 0 0 auto;
+  width: 300px;
+}
+
+.bestBox img {
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  /* today */
+  .todayBox {
+    width: 100%;
+    display: flex;
+    padding-left: 10px;
+  }
+
+  .todayBox img {
+    margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  /* 공통 */
+  .subTodayTexts {
+    gap: 10px;
+  }
+
+  .subTodayTexts h3 {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /* 공통 */
+  .subTodayTexts {
+    gap: 5px;
+  }
 }

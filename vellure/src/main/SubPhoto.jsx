@@ -9,8 +9,13 @@ const Subphoto = (props) => {
   return (
     <>
       <div className={className}>
-        <div className={`${className}Imgs`}>
-          <img className={`${className}Img`} src={imgSrc} alt="vellure image" />
+        <img src={imgSrc} alt="vellure image" />
+        <div className="subTodayTexts">
+          <p>{type}</p>
+          <h3>{title}</h3>
+          <span>
+            {date} | {by}
+          </span>
         </div>
       </div>
     </>
