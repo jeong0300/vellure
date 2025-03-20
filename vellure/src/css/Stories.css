@@ -1,0 +1,60 @@
+/* 전체, 타이틀 */
+.stories {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1280px;
+  margin: 100px 0;
+  padding: 20px;
+}
+
+.typeName {
+  width: 100%;
+  padding: 3px;
+}
+
+.typeName h1 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+/* 2*2 이미지 그리드 */
+.PhotosContainer {
+  display: flex;
+  width: 100%;
+  flex: 1;
+  gap: 20px;
+}
+
+.todayImage,
+.subPhotosContainer {
+  flex: 1;
+  max-width: 50%;
+}
+
+.subPhotosContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .typeName h1 {
+    font-size: 28px;
+  }
+
+  .PhotosContainer {
+    flex-direction: column;
+  }
+
+  .todayImage,
+  .todayBox {
+    max-width: 100%;
+  }
+
+  .subPhotosContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}

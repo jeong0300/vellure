@@ -1,0 +1,84 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #162144;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 100px;
+}
+
+.footer p {
+  color: rgb(181, 181, 181);
+  opacity: 0.5;
+  font-size: 1vw;
+  flex-shrink: 1;
+}
+
+.footLogo {
+  width: 100%;
+  max-width: 25%;
+  object-fit: contain;
+}
+
+/* footTexts에 반응형 스타일 추가 */
+.footTexts {
+  width: 100%;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  color: white;
+  list-style-type: none;
+  font-size: 1vw;
+  white-space: nowrap;
+}
+
+.footTexts li {
+  flex-shrink: 1;
+  display: flex;
+  align-items: center;
+}
+
+.footTexts li::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  margin: 0 10px;
+  background-color: #d9d9d9;
+  opacity: 0.4;
+}
+
+@media (max-width: 990px) {
+  .footer {
+    padding: 50px;
+  }
+
+  .footLogo {
+    max-width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px;
+  }
+
+  .footLogo {
+    max-width: 30%;
+  }
+
+  .footTexts {
+    font-size: 1.3vw;
+  }
+
+  .footTexts li::after {
+    height: 12px;
+    margin: 0 5px;
+  }
+
+  .footer p {
+    font-size: 1.5vw;
+  }
+}
