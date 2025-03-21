@@ -3,6 +3,7 @@ import "../css/BestStories.css";
 import Subphoto from "./SubPhoto";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -86,8 +87,10 @@ const BestStories = () => {
         </div>
         <div className="bestImgs">
           <Swiper
-            spaceBetween={bestPhotos.length}
+            modules={[Navigation]}
+            spaceBetween={16}
             slidesPerView={4}
+            slidesPerGroup={4}
             breakpoints={{
               1024: {
                 slidesPerGroup: 4,

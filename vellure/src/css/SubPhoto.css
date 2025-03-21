@@ -25,11 +25,11 @@
 /* best */
 .bestBox {
   flex: 0 0 auto;
-  width: 300px;
+  width: 280px;
 }
 
 .bestBox img {
-  width: 100%;
+  width: 95%;
 }
 
 @media screen and (max-width: 768px) {
