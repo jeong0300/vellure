@@ -17,4 +17,39 @@
   margin-bottom: 20px;
 }
 
-/* 게시글 */
+/* 스와이퍼 게시글 */
+.swiper-slide {
+  display: flex !important;
+  width: 100%;
+  flex-shrink: 1 !important;
+}
+
+.bestImgs {
+  margin-bottom: 100px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .swiper-slide {
+    width: 290px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bestStories {
+    margin-bottom: 0px;
+  }
+  .bestImgs {
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .swiper-slide {
+    width: 200px !important;
+  }
+}

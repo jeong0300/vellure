@@ -4,6 +4,8 @@ import Carosel from "./Carosel";
 import Footer from "./Footer";
 import Stories from "./Stories";
 import BestStories from "./BestStories";
+import MustRead from "./MustRead";
+import PeopleNow from "./PeopleNow";
 
 const MainPage = () => {
   return (
@@ -15,11 +17,22 @@ const MainPage = () => {
         {/* 메인 이미지 */}
         <Carosel />
 
-        {/* Today’s Stories */}
-        <Stories />
+        <div className="backColor">
+          {/* Today’s Stories */}
+          <Stories title="TODAY’S STORIES" />
 
-        {/* Best Stories */}
-        <BestStories />
+          {/* Best Stories */}
+          <BestStories />
+        </div>
+
+        {/* Must Read */}
+        <MustRead />
+
+        {/* People Now */}
+        <PeopleNow />
+
+        {/* Beauty */}
+        <Stories title="BEAUTY" />
 
         {/* footer */}
         <Footer />

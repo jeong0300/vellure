@@ -1,0 +1,46 @@
+/* 공통 */
+.mustContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1280px;
+  margin-top: 100px;
+  padding: 20px;
+}
+
+.typeName {
+  width: 100%;
+  padding: 3px;
+}
+
+.typeName h1 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.mustImgBox {
+  width: 100%;
+  max-width: 1280px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 100px;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .typeName h1 {
+    font-size: 30px;
+  }
+
+  .mustContainer {
+    margin-top: 50px;
+  }
+
+  .mustImgBox {
+    flex-wrap: wrap;
+  }
+  .mustBox {
+    width: calc(50% - 10px);
+  }
+}

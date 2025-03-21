@@ -1,0 +1,30 @@
+.pepleBackColor {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(243, 243, 243);
+  padding: 100px 0;
+}
+
+.peopleContainer {
+  display: flex;
+  gap: 20px;
+  max-width: 1280px;
+}
+
+.typeName {
+  width: 100%;
+  padding: 3px;
+}
+
+.typeName h1 {
+  font-size: 50px;
+  margin: 0 30px 30px 0;
+}
+
+.peopleImg {
+  display: flex;
+  gap: 20px;
+}

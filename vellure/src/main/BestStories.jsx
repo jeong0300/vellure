@@ -43,31 +43,31 @@ const BestStories = () => {
     },
     {
       imgSrc: bestImg4,
-      type: "아트",
-      title: "봄에 찾아온 사진전 3",
+      type: "패션 아이템",
+      title: "방금 LA에서 돌아왔는데 모두가 '이 운동화'를 신고 있었습니다",
       date: "2025.03.20",
-      by: "by 이정미",
+      by: "by 이소미, Daisy Jones",
     },
     {
       imgSrc: bestImg5,
-      type: "아트",
-      title: "봄에 찾아온 사진전 3",
-      date: "2025.03.20",
-      by: "by 이정미",
+      type: "셀러브리티 스타일",
+      title: "앤 해서웨이의 운동화에 자꾸만 눈이 가는 이유",
+      date: "2025.03.18",
+      by: "by 이소미",
     },
     {
       imgSrc: bestImg6,
-      type: "아트",
-      title: "봄에 찾아온 사진전 3",
-      date: "2025.03.20",
-      by: "by 이정미",
+      type: "패션 트랜드",
+      title: "봄옷이 고민이라면, 우선 재킷과 청바지를 꺼내세요",
+      date: "2025.03.18",
+      by: "by 안건호",
     },
     {
       imgSrc: bestImg7,
-      type: "아트",
-      title: "봄에 찾아온 사진전 3",
-      date: "2025.03.20",
-      by: "by 이정미",
+      type: "셀러브리티 스타일",
+      title: "올봄 멋 부리고 싶은 날은 이모 조끼에 청바지!",
+      date: "2025.03.18",
+      by: "by 활혜원",
     },
     {
       imgSrc: bestImg8,
@@ -93,12 +93,15 @@ const BestStories = () => {
             slidesPerGroup={4}
             breakpoints={{
               1024: {
+                slidesPerView: 4,
                 slidesPerGroup: 4,
               },
               768: {
+                slidesPerView: 3,
                 slidesPerGroup: 3,
               },
               500: {
+                slidesPerView: 2,
                 slidesPerGroup: 2,
               },
             }}
