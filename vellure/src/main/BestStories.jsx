@@ -81,7 +81,7 @@ const BestStories = () => {
   return (
     <>
       <div className="bestStories">
-        <div className="typeName">
+        <div className="bestTypeName">
           <h1>BEST STORIES</h1>
           <div className="imgBtn"></div>
         </div>

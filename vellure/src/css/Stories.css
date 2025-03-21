@@ -8,18 +8,32 @@
   padding: 20px;
 }
 
-.typeName {
+.beauty {
+  margin-top: 0;
+}
+
+.storiesTypeName {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   padding: 3px;
 }
 
-.typeName h1 {
+.storiesTypeName h1 {
   font-size: 45px;
   margin-bottom: 20px;
 }
 
 /* 2*2 이미지 그리드 */
 .PhotosContainer {
+  display: flex;
+  width: 100%;
+  flex: 1;
+  gap: 20px;
+}
+
+.fashionContainer {
   display: flex;
   width: 100%;
   flex: 1;
@@ -42,17 +56,32 @@
   gap: 10px;
 }
 
+.moreText {
+  font-weight: 600;
+  font-size: small;
+  color: gray;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
   .stories {
     margin: 50px 0;
   }
 
-  .typeName h1 {
+  .beauty {
+    margin-top: 0;
+  }
+
+  .storiesTypeName h1 {
     font-size: 28px;
   }
 
   .PhotosContainer {
     flex-direction: column;
+  }
+
+  .fashionContainer {
+    flex-direction: column-reverse;
   }
 
   .todayImage {

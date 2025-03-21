@@ -8,12 +8,22 @@
   padding: 20px;
 }
 
-.typeName {
+.mustTypeName {
   width: 100%;
   padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.typeName h1 {
+.moreText {
+  font-weight: 600;
+  font-size: small;
+  color: gray;
+  cursor: pointer;
+}
+
+.mustTypeName h1 {
   font-size: 45px;
   margin-bottom: 20px;
 }
@@ -28,13 +38,21 @@
   gap: 20px;
 }
 
+.noneMargin {
+  margin-top: 0;
+}
+
 @media (max-width: 768px) {
-  .typeName h1 {
+  .mustTypeName h1 {
     font-size: 30px;
   }
 
   .mustContainer {
     margin-top: 50px;
+  }
+
+  .noneMargin {
+    margin-top: 0;
   }
 
   .mustImgBox {

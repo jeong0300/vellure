@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .mainPage {
   user-select: none;
   -webkit-user-drag: none;
@@ -15,4 +19,18 @@
   align-items: center;
   justify-content: center;
   background-color: rgb(243, 243, 243);
+}
+
+.topBtnImg {
+  position: fixed;
+  right: 25px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .topBtnImg {
+    display: none;
+  }
 }

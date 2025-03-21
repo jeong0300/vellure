@@ -15,6 +15,12 @@ import subBeautyImg2 from "../image/beauty3.webp";
 import subBeautyImg3 from "../image/beauty4.webp";
 import subBeautyImg4 from "../image/beauty5.webp";
 
+import bigFashionImg from "../image/fashion1.webp";
+import subFashionImg1 from "../image/fashion2.webp";
+import subFashionImg2 from "../image/fashion3.webp";
+import subFashionImg3 from "../image/fashion4.webp";
+import subFashionImg4 from "../image/fashion5.webp";
+
 // today 데이타
 const todayBigImgInfo = {
   imgSrc: bigImg,
@@ -93,27 +99,102 @@ const beautySubPhotos = [
   },
 ];
 
+// fashion 데이터
+const fashionBigImgInfo = {
+  imgSrc: bigFashionImg,
+  title: "지수, 프린세스 디올",
+  subTitle: "패션 화보",
+  date: "2025.03.19",
+};
+
+const fashionSubPhotos = [
+  {
+    imgSrc: subFashionImg1,
+    type: "패션 아이템",
+    title: "올봄 우아해지는, 올봄 가냘픈 신발",
+    date: "2025.03.21",
+    by: "by 이소미",
+  },
+  {
+    imgSrc: subFashionImg2,
+    type: "패션 화보",
+    title: "CARPE DIEM!",
+    date: "2025.03.21",
+    by: "by 최보경",
+  },
+  {
+    imgSrc: subFashionImg3,
+    type: "Fashion",
+    title: "Behind the Field",
+    date: "2025.03.21",
+    by: "by 서명희",
+  },
+  {
+    imgSrc: subFashionImg4,
+    type: "패션 뉴스",
+    title: '"회의 중에 휴대폰이 울려서 봤더니 톰 포드더군요" 하이더 아커만',
+    date: "2025.03.21",
+    by: "by 김다혜",
+  },
+];
+
 const Stories = (props) => {
   const { title } = props;
 
+  const isToday = title === "TODAY’S STORIES";
   const isBeauty = title === "BEAUTY";
+  const isFashion = title === "FASHION";
 
-  const bigImgInfo = isBeauty ? beautyBigImgInfo : todayBigImgInfo;
-  const subPhotos = isBeauty ? beautySubPhotos : todaySubPhotos;
+  const bigImgInfo = isBeauty
+    ? beautyBigImgInfo
+    : isFashion
+    ? fashionBigImgInfo
+    : todayBigImgInfo;
+  const subPhotos = isBeauty
+    ? beautySubPhotos
+    : isFashion
+    ? fashionSubPhotos
+    : todaySubPhotos;
 
   return (
     <>
-      <div className="stories">
-        <div className="typeName">
+      <div className={`stories ${isBeauty ? "beauty" : ""}`}>
+        <div className="storiesTypeName">
           <h1>{title}</h1>
+          {isBeauty || isFashion ? (
+            <div className="moreText"> MORE {">"} </div>
+          ) : (
+            ""
+          )}
         </div>
         <div className="PhotosContainer">
-          <BigPhoto className="todayImage" bigImgInfo={bigImgInfo} />
-          <div className="subPhotosContainer">
-            {subPhotos.map((subData, index) => (
-              <Subphoto key={index} className="todayBox" subData={subData} />
-            ))}
-          </div>
+          {isBeauty || isToday ? (
+            <>
+              <BigPhoto className="todayImage" bigImgInfo={bigImgInfo} />
+              <div className="subPhotosContainer">
+                {subPhotos.map((subData, index) => (
+                  <Subphoto
+                    key={index}
+                    className="todayBox"
+                    subData={subData}
+                  />
+                ))}
+              </div>
+            </>
+          ) : (
+            <div className="fashionContainer">
+              <div className="subPhotosContainer">
+                {subPhotos.map((subData, index) => (
+                  <Subphoto
+                    key={index}
+                    className="todayBox"
+                    subData={subData}
+                  />
+                ))}
+              </div>
+              <BigPhoto className="todayImage" bigImgInfo={bigImgInfo} />
+            </div>
+          )}
         </div>
       </div>
     </>

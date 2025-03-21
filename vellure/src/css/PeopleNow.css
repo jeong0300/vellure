@@ -12,14 +12,15 @@
   display: flex;
   gap: 20px;
   max-width: 1280px;
+  padding: 20px;
 }
 
-.typeName {
+.peopleTypeName {
   width: 100%;
   padding: 3px;
 }
 
-.typeName h1 {
+.peopleTypeName h1 {
   font-size: 50px;
   margin: 0 30px 30px 0;
 }
@@ -27,4 +28,35 @@
 .peopleImg {
   display: flex;
   gap: 20px;
+}
+
+.peopleTexts {
+  margin-right: 20px;
+}
+
+.peopleTexts p {
+  font-weight: 600;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .pepleBackColor {
+    margin-top: 50px;
+  }
+
+  .peopleTypeName h1 {
+    font-size: 50px;
+  }
+
+  .peopleContainer {
+    flex-direction: column;
+  }
+
+  .peopleImg .peopleImage:not(:first-child) {
+    display: none;
+  }
+
+  .peopleTexts {
+    margin-bottom: 10px;
+  }
 }

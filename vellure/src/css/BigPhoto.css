@@ -48,8 +48,18 @@
   z-index: 1;
 }
 
+/* people */
 .peopleImage img {
   width: 100%;
+}
+
+.peopleImage span {
+  font-weight: 600;
+  margin-bottom: -10px;
+}
+
+.peopleImage h1 {
+  font-size: 1.4vw;
 }
 
 /* 반응형 */
@@ -59,6 +69,12 @@
     font-size: 1.2vw;
     bottom: 100px;
   }
+
+  /* people */
+  .peopleImage .photoTexts {
+    font-size: 1.5vw;
+    bottom: 50px;
+  }
 }
 
 @media screen and (max-width: 940px) {
@@ -66,6 +82,12 @@
   .photoTexts {
     font-size: 1.3vw;
     bottom: 150px;
+  }
+
+  /* people */
+  .peopleImage .photoTexts {
+    font-size: 1.6vw;
+    bottom: 50px;
   }
 }
 
@@ -80,6 +102,16 @@
   /* today */
   .todayImageBox {
     width: 98%;
+  }
+
+  /* people */
+  .peopleImage .photoTexts {
+    font-size: 2vw;
+    bottom: 50px;
+  }
+
+  .peopleImage h1 {
+    font-size: 5vw;
   }
 }
 

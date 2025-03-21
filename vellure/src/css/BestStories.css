@@ -7,12 +7,12 @@
   padding: 20px;
 }
 
-.typeName {
+.bestTypeName {
   width: 100%;
   padding: 3px;
 }
 
-.typeName h1 {
+.bestTypeName h1 {
   font-size: 45px;
   margin-bottom: 20px;
 }
@@ -40,6 +40,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .bestTypeName h1 {
+    font-size: 30px;
+  }
   .bestStories {
     margin-bottom: 0px;
   }

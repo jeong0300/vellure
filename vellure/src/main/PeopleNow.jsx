@@ -33,7 +33,7 @@ const PeopleNow = () => {
       <div className="pepleBackColor">
         <div className="peopleContainer">
           <div className="peopleTexts">
-            <div className="typeName">
+            <div className="peopleTypeName">
               <h1> PEOPLE NOW </h1>
             </div>
 
