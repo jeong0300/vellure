@@ -1,11 +1,11 @@
-.latestBox {
+.latest {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 20px;
   width: 100%;
   max-width: 1280px;
+  margin-bottom: 50px;
   padding: 20px;
 }
 
@@ -21,24 +21,33 @@
 
 .latestContainer {
   display: flex;
+  align-items: flex-start;
   gap: 20px;
 }
 
 .leftSub {
-  width: 100%;
-  max-width: 70%;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, auto);
+  gap: 20px;
 }
 
 .rightSticky {
   position: sticky;
   width: 100%;
-  max-width: 25%;
-  top: 0;
+  max-width: 300px;
+  top: 20px;
+}
+
+.rightSticky img {
+  width: 100%;
+  max-width: 300px;
 }
 
 @media (max-width: 768px) {
   .latestTypeName h1 {
-    font-size: 50px;
+    font-size: 30px;
   }
 
   .peopleImg .peopleImage:not(:first-child) {
@@ -55,5 +64,10 @@
 
   .rightSticky {
     display: none;
+  }
+
+  .leftSub {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, auto);
   }
 }

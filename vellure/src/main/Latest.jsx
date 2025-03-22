@@ -107,15 +107,15 @@ const latestSubPhotos = [
 const Latest = () => {
   return (
     <>
-      <div className="latestBox">
+      <div className="latest">
         <div className="latestTypeName">
-          <h1> PEOPLE NOW </h1>
+          <h1> LATEST STORIES </h1>
         </div>
         <div className="latestContainer">
           <div className="leftSub">
-            {latestSubPhotos.map((latest, idx) => {
-              <SubPhoto key={idx} subData={latest} className="letestBox" />;
-            })}
+            {latestSubPhotos.map((latest, idx) => (
+              <SubPhoto key={idx} subData={latest} className="latestBox" />
+            ))}
           </div>
           <div className="rightSticky">
             <img src={stickyImg} alt="vellure image" />
