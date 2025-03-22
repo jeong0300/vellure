@@ -42,6 +42,7 @@
   align-items: center;
   padding: 35px;
   margin: 20px 0;
+  cursor: pointer;
 }
 
 .logoImg {

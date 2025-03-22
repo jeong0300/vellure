@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { Select, Button } from "antd";
+import { Select, Button, notification } from "antd";
+import { Link } from "react-router-dom";
 import { MenuOutlined } from "@ant-design/icons";
 import "../css/Header.css";
 
 import logoImg from "../image/headerLogo.png";
 
+const handleLogoClick = () => {
+  window.scrollTo(0, 0);
+};
+
 const Header = () => {
   const [prevScrollY, setPrevScrollY] = useState(0);
   const [visible, setVisible] = useState(true);
+
+  const alert = () => {
+    notification.warning({
+      message: "준비 중인 기능입니다!",
+    });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,9 +44,9 @@ const Header = () => {
       <div className="header-placeholder"></div>
       <div className={`header ${visible ? "visible" : "hidden"}`}>
         <div className="logoBtns">
-          <div className="logo">
+          <Link to="/" className="logo" onClick={handleLogoClick}>
             <img className="logoImg" src={logoImg} alt="vellure logo" />
-          </div>
+          </Link>
           <div className="btns">
             <Select
               defaultValue="KOREA"
@@ -50,7 +61,9 @@ const Header = () => {
               ]}
             />
 
-            <div className="btn">구독하기</div>
+            <div className="btn" onClick={alert}>
+              구독하기
+            </div>
 
             <Button
               type="text"
