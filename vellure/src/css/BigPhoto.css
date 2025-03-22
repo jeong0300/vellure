@@ -1,6 +1,7 @@
 /* 공통 */
 .allContainer {
   position: relative;
+  cursor: pointer;
 }
 
 .photoTexts {
@@ -60,6 +61,10 @@
 
 .peopleImage h1 {
   font-size: 1.4vw;
+}
+
+.peopleImage .photoTexts {
+  padding-left: 3px;
 }
 
 /* 반응형 */

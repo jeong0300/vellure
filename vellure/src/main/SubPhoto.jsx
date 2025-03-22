@@ -8,7 +8,7 @@ const Subphoto = (props) => {
 
   return (
     <>
-      <div className={className}>
+      <div className={`Container ${className}`}>
         <img src={imgSrc} alt="vellure image" />
         <div className="subTodayTexts">
           <p>{type}</p>
