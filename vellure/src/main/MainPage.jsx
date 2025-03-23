@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 
 import "../css/MainPage.css";
 import Header from "./Header";
@@ -9,6 +10,7 @@ import BestStories from "./BestStories";
 import GridNews from "./GridNews";
 import PeopleNow from "./PeopleNow";
 import Latest from "./Latest";
+import Category from "./CategoryPage";
 
 import topBtn from "../image/topBtn.png";
 
@@ -56,7 +58,7 @@ const MainPage = () => {
     <>
       <div className="mainPage">
         {/* 헤더 */}
-        <Header />
+        <Header type="main" />
 
         {/* 메인 이미지 */}
         <Carosel />

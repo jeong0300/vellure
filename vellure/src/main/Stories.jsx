@@ -144,6 +144,7 @@ const Stories = (props) => {
   const isToday = title === "TODAY’S STORIES";
   const isBeauty = title === "BEAUTY";
   const isFashion = title === "FASHION";
+  const isNone = title === "";
 
   const bigImgInfo = isBeauty
     ? beautyBigImgInfo
@@ -159,16 +160,21 @@ const Stories = (props) => {
   return (
     <>
       <div className={`stories ${isBeauty ? "beauty" : ""}`}>
-        <div className="storiesTypeName">
-          <h1>{title}</h1>
-          {isBeauty || isFashion ? (
-            <div className="moreText"> MORE {">"} </div>
-          ) : (
-            ""
-          )}
-        </div>
+        {!isNone ? (
+          <div className="storiesTypeName">
+            <h1>{title}</h1>
+            {isBeauty || isFashion ? (
+              <div className="moreText"> MORE {">"} </div>
+            ) : (
+              ""
+            )}
+          </div>
+        ) : (
+          <div></div>
+        )}
+
         <div className="PhotosContainer">
-          {isBeauty || isToday ? (
+          {isBeauty || isToday || isNone ? (
             <>
               <BigPhoto className="todayImage" bigImgInfo={bigImgInfo} />
               <div className="subPhotosContainer">

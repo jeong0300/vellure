@@ -1,5 +1,9 @@
 .header-placeholder {
-  height: 250px;
+  height: 170px;
+}
+
+.category-placeholder {
+  height: 120px;
 }
 
 .header {
@@ -19,6 +23,11 @@
   padding-bottom: 50px;
 }
 
+.categoryHeader {
+  padding: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 .header.hidden {
   transform: translateY(-100%);
 }
@@ -33,6 +42,19 @@
   position: relative;
   width: 100%;
   align-items: center;
+}
+
+.categoryBtns {
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.categoryLogoImg {
+  padding: 0;
+}
+
+.categoryHImg {
+  max-width: 170px;
 }
 
 .logo {
@@ -56,6 +78,12 @@
   position: absolute;
   align-items: center;
   right: 20px;
+  gap: 20px;
+}
+
+.categorySelect {
+  display: flex;
+  align-items: center;
   gap: 20px;
 }
 
@@ -83,6 +111,10 @@
 }
 
 /* 카테고리 */
+.categoryHeader .category {
+  width: auto;
+}
+
 .category {
   display: flex;
   width: 100%;
@@ -100,6 +132,101 @@
   cursor: pointer;
 }
 
+.category-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 토글 */
+.toggleMenu {
+  user-select: none;
+  -webkit-user-drag: none;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 0px;
+  background-color: rgb(4, 4, 4);
+  z-index: 1001;
+  padding: 30px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.toggleMenu.visible {
+  visibility: visible;
+  opacity: 1;
+  max-height: 100vh;
+}
+
+/* 토글 안 로고 */
+.LogoBox {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.toggleLogo {
+  width: 100%;
+  max-width: 350px;
+}
+
+.closeImg {
+  cursor: pointer;
+}
+
+.closeIcon {
+  max-width: 50px;
+}
+
+/* 토글 안 카테고리 타이틀 */
+.categorys {
+  display: flex;
+  align-items: flex-start;
+  color: white;
+  justify-content: space-between;
+}
+
+.categoryTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.categoryFont {
+  font-size: 75px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.categoryFont:hover {
+  opacity: 1 !important;
+}
+
+.categoryName {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 30px;
+  font-size: 27px;
+  font-weight: bold;
+}
+
+.categoryName div {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.categoryName div:hover {
+  opacity: 1;
+}
+
 /* 반응형 */
 @media screen and (max-width: 1000px) {
   .header-placeholder {
@@ -112,6 +239,14 @@
 
   .btn {
     display: none;
+  }
+
+  .categoryHImg {
+    width: 150px;
+  }
+
+  .categoryBtns .category {
+    margin-left: 0;
   }
 
   .category {

@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import "../css/SubPhoto.css";
 
 const Subphoto = (props) => {
