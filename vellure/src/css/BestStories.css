@@ -30,7 +30,7 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: white !important;
+  color: rgb(102, 97, 130) !important;
 }
 
 @media screen and (max-width: 1200px) {

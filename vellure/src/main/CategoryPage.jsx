@@ -3,31 +3,30 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Stories from "./Stories";
 import SubPhoto from "./SubPhoto";
+import {
+  fashionData,
+  beautyData,
+  lifeData,
+  cultureData,
+  videoData,
+} from "../data/categoryData";
 
-// 이미지
 import rightImg from "../image/categorySticky.jpeg";
 import notVideoImg from "../image/stickyImg.jpeg";
-
-subPhotos;
 
 const CategoryPage = (props) => {
   const { category, categories } = props;
 
-  const isFashion = category === "FASHION";
-  const isBeauty = category === "BEAUTY";
-  const isLifeStyle = category === "LIFESTYLE";
-  const isCulture = category === "CULTURE";
-  const isVideo = category === "VIDEO";
+  const categoryData = {
+    FASHION: fashionData,
+    BEAUTY: beautyData,
+    LIFESTYLE: lifeData,
+    CULTURE: cultureData,
+    VIDEO: videoData,
+  };
 
-  const subPhotos = isFashion
-    ? fashionData
-    : isBeauty
-    ? beautyData
-    : isLifeStyle
-    ? lifeData
-    : isCulture
-    ? cultureData
-    : videoData;
+  const subPhotos = categoryData[category] || {};
+
   return (
     <>
       <Header type="category" />
@@ -47,11 +46,22 @@ const CategoryPage = (props) => {
         <div className="catagoryContainer">
           <div className="catagoryContent">
             <div className="leftStories">
-              <Stories title="" />
+              <Stories title="" category={category} />
             </div>
             <div className="leftCategory">
-              {subPhotos.map((data, index) => (
-                <SubPhoto key={index} className="mustBox" subData={data} />
+              {Object.entries(subPhotos).map(([categoryName, items]) => (
+                <div key={categoryName} className="categorySection">
+                  <h2 className="categoryTitle">{categoryName}</h2>
+                  <div className="categorys">
+                    {items.map((data, index) => (
+                      <SubPhoto
+                        key={index}
+                        className="mustBox"
+                        subData={data}
+                      />
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </div>

@@ -56,6 +56,11 @@ const Header = (props) => {
     }
   };
 
+  // 이동 시 맨 위로
+  const moveCategory = () => {
+    window.scrollTo(0, 0);
+  };
+
   // 반응형 통일
   useEffect(() => {
     window.addEventListener("resize", handleResize);
@@ -186,27 +191,47 @@ const Header = (props) => {
             </div>
             <div className="category">
               <h3>
-                <Link to="/fashion" className="category-link">
+                <Link
+                  to="/fashion"
+                  className="category-link"
+                  onClick={moveCategory}
+                >
                   FASHION
                 </Link>
               </h3>
               <h3>
-                <Link to="/beauty" className="category-link">
+                <Link
+                  to="/beauty"
+                  className="category-link"
+                  onClick={moveCategory}
+                >
                   BEAUTY
                 </Link>
               </h3>
               <h3>
-                <Link to="/lifestyle" className="category-link">
+                <Link
+                  to="/lifestyle"
+                  className="category-link"
+                  onClick={moveCategory}
+                >
                   LIFESTYLE
                 </Link>
               </h3>
               <h3>
-                <Link to="/culture" className="category-link">
+                <Link
+                  to="/culture"
+                  className="category-link"
+                  onClick={moveCategory}
+                >
                   CULTURE
                 </Link>
               </h3>
               <h3>
-                <Link to="/video" className="category-link">
+                <Link
+                  to="/video"
+                  className="category-link"
+                  onClick={moveCategory}
+                >
                   VIDEO
                 </Link>
               </h3>
@@ -236,27 +261,47 @@ const Header = (props) => {
 
               <div className="category">
                 <h3>
-                  <Link to="/fashion" className="category-link">
+                  <Link
+                    to="/fashion"
+                    className="category-link"
+                    onClick={moveCategory}
+                  >
                     FASHION
                   </Link>
                 </h3>
                 <h3>
-                  <Link to="/beauty" className="category-link">
+                  <Link
+                    to="/beauty"
+                    className="category-link"
+                    onClick={moveCategory}
+                  >
                     BEAUTY
                   </Link>
                 </h3>
                 <h3>
-                  <Link to="/lifestyle" className="category-link">
+                  <Link
+                    to="/lifestyle"
+                    className="category-link"
+                    onClick={moveCategory}
+                  >
                     LIFESTYLE
                   </Link>
                 </h3>
                 <h3>
-                  <Link to="/culture" className="category-link">
+                  <Link
+                    to="/culture"
+                    className="category-link"
+                    onClick={moveCategory}
+                  >
                     CULTURE
                   </Link>
                 </h3>
                 <h3>
-                  <Link to="/video" className="category-link">
+                  <Link
+                    to="/video"
+                    className="category-link"
+                    onClick={moveCategory}
+                  >
                     VIDEO
                   </Link>
                 </h3>

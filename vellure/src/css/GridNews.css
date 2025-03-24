@@ -23,6 +23,11 @@
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .mustTypeName h1 {
   font-size: 45px;
   margin-bottom: 20px;
@@ -58,7 +63,7 @@
   .mustImgBox {
     flex-wrap: wrap;
   }
-  .mustBox {
+  .mustImgBox .mustBox {
     width: calc(50% - 10px);
   }
 }
