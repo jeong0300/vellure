@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import "../css/CategoryPage.css";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -14,9 +16,52 @@ import {
 import rightImg from "../image/categorySticky.jpeg";
 import notVideoImg from "../image/stickyImg.jpeg";
 
+import topBtn from "../image/topBtn.png";
+
 const CategoryPage = (props) => {
   const { category, categories } = props;
 
+  // top 버튼
+  const [showTopBtn, setShowTopBtn] = useState(false);
+  const [bottomOffset, setBottomOffset] = useState(80);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // 위에서 40% 일 때 보여주기
+      setShowTopBtn(scrollY > windowHeight * 0.4);
+
+      // 아래에서 40% 일 때 없애기
+      if (scrollY + windowHeight >= documentHeight - windowHeight * 0.4) {
+        setBottomOffset(-50);
+      } else {
+        setBottomOffset(80);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    let scrollPosition = window.scrollY;
+    const scrollStep = scrollPosition / 30;
+
+    const scrollInterval = setInterval(() => {
+      if (scrollPosition > 0) {
+        scrollPosition -= scrollStep;
+        window.scrollTo(0, scrollPosition);
+      } else {
+        clearInterval(scrollInterval);
+      }
+    }, 15);
+  };
+
+  // 카테고리 별 데이터 출력
   const categoryData = {
     FASHION: fashionData,
     BEAUTY: beautyData,
@@ -28,7 +73,7 @@ const CategoryPage = (props) => {
   const subPhotos = categoryData[category] || {};
 
   return (
-    <>
+    <div className="categoryPage">
       <Header type="category" />
       <div className="categoryItems">
         <div className="categoryPageName"> {category} </div>
@@ -73,8 +118,20 @@ const CategoryPage = (props) => {
           </div>
         </div>
       </div>
+
+      <img
+        className="topBtnImg"
+        src={topBtn}
+        alt="Top Button"
+        style={{
+          opacity: showTopBtn ? 1 : 0,
+          transition: "opacity 0.3s ease-in-out",
+          bottom: `${bottomOffset}px`,
+        }}
+        onClick={scrollToTop}
+      />
       <Footer />
-    </>
+    </div>
   );
 };
 

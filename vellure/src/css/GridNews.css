@@ -52,12 +52,12 @@ a {
     font-size: 30px;
   }
 
-  .mustContainer {
-    margin-top: 50px;
-  }
-
   .noneMargin {
     margin-top: 0;
+  }
+
+  .mustContainer {
+    margin-bottom: 0;
   }
 
   .mustImgBox {

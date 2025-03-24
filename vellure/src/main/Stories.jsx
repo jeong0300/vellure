@@ -30,21 +30,41 @@ const Stories = (props) => {
   const isFashion = title === "FASHION";
   const isNone = title === "";
 
-  const bigImgInfo = isBeauty
-    ? beautyBigImgInfo
-    : isFashion
-    ? fashionBigImgInfo
-    : isToday
-    ? todayBigImgInfo
-    : fashionBigCate;
+  let bigImgInfo;
+  let subPhotos;
 
-  const subPhotos = isBeauty
-    ? beautySubPhotos
-    : isFashion
-    ? fashionSubPhotos
-    : isToday
-    ? todaySubPhotos
-    : fashionSubCate;
+  // title 별 데이터 및 컴포넌트 순서 변경 -> MainPage
+  if (isBeauty) {
+    bigImgInfo = beautyBigImgInfo;
+    subPhotos = beautySubPhotos;
+  } else if (isFashion) {
+    bigImgInfo = fashionBigImgInfo;
+    subPhotos = fashionSubPhotos;
+  } else if (isToday) {
+    bigImgInfo = todayBigImgInfo;
+    subPhotos = todaySubPhotos;
+  } else {
+    bigImgInfo = fashionBigCate;
+    subPhotos = fashionSubCate;
+  }
+
+  // category 별 데이터 변경 -> CategoryPage
+  if (category === "FASHION") {
+    bigImgInfo = fashionBigCate;
+    subPhotos = fashionSubCate;
+  } else if (category === "BEAUTY") {
+    bigImgInfo = beautyBigCate;
+    subPhotos = beautySubCate;
+  } else if (category === "LIFESTYLE") {
+    bigImgInfo = lifeBigCate;
+    subPhotos = lifeSubCate;
+  } else if (category === "CULTURE") {
+    bigImgInfo = cultureBigCate;
+    subPhotos = cultureSubCate;
+  } else if (category === "VIDEO") {
+    bigImgInfo = videoBigCate;
+    subPhotos = videoSubCate;
+  }
 
   return (
     <>
@@ -67,45 +87,15 @@ const Stories = (props) => {
         <div className="PhotosContainer">
           {isBeauty || isToday || isNone ? (
             <>
-              <BigPhoto
-                className="todayImage"
-                bigImgInfo={
-                  category === "FASHION"
-                    ? bigImgInfo
-                    : category === "BEAUTY"
-                    ? beautyBigCate
-                    : category === "LIFESTYLE"
-                    ? lifeBigCate
-                    : category === "CULTURE"
-                    ? cultureBigCate
-                    : category === "VIDEO"
-                    ? videoBigCate
-                    : bigImgInfo
-                }
-              />
+              <BigPhoto className="todayImage" bigImgInfo={bigImgInfo} />
               <div className="subPhotosContainer">
-                {subPhotos.map((_, index) => {
-                  const selectedSubData =
-                    category === "FASHION"
-                      ? fashionSubCate[index]
-                      : category === "BEAUTY"
-                      ? beautySubCate[index]
-                      : category === "LIFESTYLE"
-                      ? lifeSubCate[index]
-                      : category === "CULTURE"
-                      ? cultureSubCate[index]
-                      : category === "VIDEO"
-                      ? videoSubCate[index]
-                      : subPhotos[index];
-
-                  return (
-                    <Subphoto
-                      key={index}
-                      className="todayBox"
-                      subData={selectedSubData}
-                    />
-                  );
-                })}
+                {subPhotos.map((subData, index) => (
+                  <Subphoto
+                    key={index}
+                    className="todayBox"
+                    subData={subData}
+                  />
+                ))}
               </div>
             </>
           ) : (

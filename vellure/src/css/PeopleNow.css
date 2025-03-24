@@ -41,7 +41,7 @@
 /* 반응형 */
 @media (max-width: 768px) {
   .pepleBackColor {
-    margin-top: 50px;
+    margin-top: 0px;
   }
 
   .peopleTypeName h1 {

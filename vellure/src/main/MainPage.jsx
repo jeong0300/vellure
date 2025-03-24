@@ -15,6 +15,7 @@ import Category from "./CategoryPage";
 import topBtn from "../image/topBtn.png";
 
 const MainPage = () => {
+  // top 버튼
   const [showTopBtn, setShowTopBtn] = useState(false);
   const [bottomOffset, setBottomOffset] = useState(80);
 
@@ -42,7 +43,7 @@ const MainPage = () => {
 
   const scrollToTop = () => {
     let scrollPosition = window.scrollY;
-    const scrollStep = scrollPosition / 40;
+    const scrollStep = scrollPosition / 30;
 
     const scrollInterval = setInterval(() => {
       if (scrollPosition > 0) {
@@ -51,7 +52,7 @@ const MainPage = () => {
       } else {
         clearInterval(scrollInterval);
       }
-    }, 20);
+    }, 15);
   };
 
   return (

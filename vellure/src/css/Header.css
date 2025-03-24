@@ -274,6 +274,18 @@
   }
 }
 
+@media screen and (max-width: 430px) {
+  .category h3:last-child {
+    display: none;
+  }
+  .btns {
+    right: 10px;
+  }
+  .mainPage {
+    overflow: hidden;
+  }
+}
+
 @media screen and (max-width: 380px) {
   .header-placeholder {
     height: 150px;
