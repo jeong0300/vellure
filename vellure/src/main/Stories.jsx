@@ -20,6 +20,7 @@ import {
   videoBigCate,
   videoSubCate,
 } from "../data/storiesData";
+
 import { Link } from "react-router-dom";
 
 const Stories = (props) => {

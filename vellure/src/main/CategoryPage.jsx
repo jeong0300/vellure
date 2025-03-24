@@ -20,6 +20,7 @@ import topBtn from "../image/topBtn.png";
 
 const CategoryPage = (props) => {
   const { category, categories } = props;
+  const [selectedSub, setSelectedSub] = useState("전체");
 
   // top 버튼
   const [showTopBtn, setShowTopBtn] = useState(false);
@@ -47,9 +48,48 @@ const CategoryPage = (props) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // 카테고리 이동 시 "전체"로 초기화
+  useEffect(() => {
+    setSelectedSub("전체");
+  }, [category]);
+
+  const categoryData = {
+    FASHION: fashionData,
+    BEAUTY: beautyData,
+    LIFESTYLE: lifeData,
+    CULTURE: cultureData,
+    VIDEO: videoData,
+  };
+
+  const subPhotos = categoryData[category] || {};
+
+  // 데이터 필터링 (선택된 서브 카테고리)
+  let filteredPhotos = [];
+  if (selectedSub === "전체") {
+    filteredPhotos = Object.entries(subPhotos);
+  } else {
+    filteredPhotos = Object.entries(subPhotos).filter(
+      ([categoryName]) => categoryName === selectedSub
+    );
+  }
+
+  // 서브 카테고리 중 아트, 최신 뉴스는 Latest stories 내용만 출력
+  const getLatestCategory = () => {
+    if (category === "FASHION" && subPhotos["LATEST STORIES"]) {
+      return subPhotos["LATEST STORIES"];
+    } else if (category === "LIFESTYLE" && subPhotos["LATEST STORIOS"]) {
+      return subPhotos["LATEST STORIOS"];
+    } else if (category === "CULTURE" && subPhotos["LATEST STORIOS"]) {
+      return subPhotos["LATEST STORIOS"];
+    }
+
+    return [];
+  };
+
+  // 맨 위로 스크롤
   const scrollToTop = () => {
     let scrollPosition = window.scrollY;
-    const scrollStep = scrollPosition / 30;
+    const scrollStep = scrollPosition / 20;
 
     const scrollInterval = setInterval(() => {
       if (scrollPosition > 0) {
@@ -61,40 +101,36 @@ const CategoryPage = (props) => {
     }, 15);
   };
 
-  // 카테고리 별 데이터 출력
-  const categoryData = {
-    FASHION: fashionData,
-    BEAUTY: beautyData,
-    LIFESTYLE: lifeData,
-    CULTURE: cultureData,
-    VIDEO: videoData,
-  };
-
-  const subPhotos = categoryData[category] || {};
-
   return (
     <div className="categoryPage">
       <Header type="category" />
       <div className="categoryItems">
-        <div className="categoryPageName"> {category} </div>
+        <div className="categoryPageName">{category}</div>
+
+        {/* 서브 카테고리 네비게이션 */}
         <div className="categorySubName">
-          {categories ? (
+          {categories &&
             categories.map((c, index) => (
-              <div key={index} className="subName">
+              <div
+                key={index}
+                className={`subName ${selectedSub === c ? "active" : ""}`}
+                onClick={() => setSelectedSub(c)}
+              >
                 {c}
               </div>
-            ))
-          ) : (
-            <div></div>
-          )}
+            ))}
         </div>
+
         <div className="catagoryContainer">
           <div className="catagoryContent">
-            <div className="leftStories">
-              <Stories title="" category={category} />
-            </div>
+            {selectedSub === "전체" && (
+              <div className="leftStories">
+                <Stories title="" category={category} />
+              </div>
+            )}
+
             <div className="leftCategory">
-              {Object.entries(subPhotos).map(([categoryName, items]) => (
+              {filteredPhotos.map(([categoryName, items]) => (
                 <div key={categoryName} className="categorySection">
                   <h2 className="categoryTitle">{categoryName}</h2>
                   <div className="categorys">
@@ -108,8 +144,27 @@ const CategoryPage = (props) => {
                   </div>
                 </div>
               ))}
+
+              {/* 최신 뉴스, 셀럽 뉴스, 아트 카테고리는 "LATEST STORIES"로 출력 */}
+              {(selectedSub === "최신 뉴스" ||
+                selectedSub === "셀럽 뉴스" ||
+                selectedSub === "아트") && (
+                <div className="categorySection">
+                  <h2 className="categoryTitle">LATEST STORIES</h2>
+                  <div className="categorys">
+                    {getLatestCategory().map((data, index) => (
+                      <SubPhoto
+                        key={index}
+                        className="mustBox"
+                        subData={data}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
+
           <div className="rightCategory">
             <img
               src={Math.random() < 0.5 ? notVideoImg : rightImg}
@@ -130,6 +185,7 @@ const CategoryPage = (props) => {
         }}
         onClick={scrollToTop}
       />
+
       <Footer />
     </div>
   );

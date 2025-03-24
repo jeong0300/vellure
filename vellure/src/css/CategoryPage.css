@@ -89,6 +89,12 @@
   font-weight: bold;
 }
 
+.subName.active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 7px;
+}
+
 @media screen and (max-width: 1250px) {
   .rightCategory {
     display: none;
