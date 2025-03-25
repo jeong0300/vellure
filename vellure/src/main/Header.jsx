@@ -29,6 +29,7 @@ const Header = (props) => {
   const [activeCategory, setActiveCategory] = useState("FASHION");
   const [selectedCategory, setSelectedCategory] = useState(null);
 
+  // 헤더 토글 여닫기
   const toggleOpen = () => {
     setToggle(true);
   };
@@ -37,6 +38,7 @@ const Header = (props) => {
     setToggle(false);
   };
 
+  // 경고창
   const alert = () => {
     notification.warning({
       message: "준비 중인 기능입니다!",
@@ -48,6 +50,7 @@ const Header = (props) => {
     setWindowWidth(window.innerWidth);
   };
 
+  // 토글 안 카테고리 클릭 시
   const handleCategoryClick = (category) => {
     if (selectedCategory === category) {
       setSelectedCategory(null);
@@ -61,7 +64,7 @@ const Header = (props) => {
     window.scrollTo(0, 0);
   };
 
-  // 반응형 통일
+  // 반응형 통일시키기
   useEffect(() => {
     window.addEventListener("resize", handleResize);
     return () => {
@@ -155,6 +158,7 @@ const Header = (props) => {
         </div>
       </div>
 
+      {/* MainPage 헤더, 850px 아래일 때 통일 디자인 통일됨 */}
       {windowWidth < 850 || type === "main" ? (
         <>
           <div className="header-placeholder"></div>
@@ -189,6 +193,7 @@ const Header = (props) => {
                 />
               </div>
             </div>
+            {/* 카테고리 */}
             <div className="category">
               <h3>
                 <Link
@@ -239,6 +244,7 @@ const Header = (props) => {
           </div>
         </>
       ) : (
+        // CategoryPage 헤더
         <>
           <div className="category-placeholder"></div>
           <div

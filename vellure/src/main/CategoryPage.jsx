@@ -26,6 +26,7 @@ const CategoryPage = (props) => {
   const [showTopBtn, setShowTopBtn] = useState(false);
   const [bottomOffset, setBottomOffset] = useState(80);
 
+  // 헤더
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -48,7 +49,7 @@ const CategoryPage = (props) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 카테고리 이동 시 "전체"로 초기화
+  // 카테고리 클릭 시 "전체"로 초기화
   useEffect(() => {
     setSelectedSub("전체");
   }, [category]);

@@ -23,6 +23,7 @@ const GridNews = (props) => {
       >
         <div className="mustTypeName">
           <h1>{title}</h1>
+          {/* 해당 카테고리로 이동 */}
           {isLifeStyle || isCulture ? (
             <Link to={`/${title}`} onClick={() => window.scrollTo(0, 0)}>
               <div className="moreText"> MORE {">"} </div>

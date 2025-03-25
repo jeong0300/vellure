@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/BigPhoto.css";
+import { notification } from "antd";
 
 const BigPhoto = (props) => {
   const { className, bigImgInfo } = props;
@@ -7,8 +8,14 @@ const BigPhoto = (props) => {
 
   const titleLines = title ? title.split("\n") : [];
 
+  const alert = () => {
+    notification.warning({
+      message: "준비 중인 기능입니다!",
+    });
+  };
+
   return (
-    <div className={`allContainer ${className || ""}`}>
+    <div className={`allContainer ${className || ""}`} onClick={alert}>
       <div className={`${className}Box`}>
         <img className={`${className}Img`} src={imgSrc} alt="BigPhoto" />
       </div>

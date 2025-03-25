@@ -3,7 +3,7 @@ import "../css/BestStories.css";
 import Subphoto from "./SubPhoto";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation } from "swiper";
 
 import "swiper/css";
 import "swiper/css/navigation";
