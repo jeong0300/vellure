@@ -118,7 +118,7 @@
     </tr>
     <tr>
       <td>Stories</td>
-      <td> title(= category 제목), <br/> category <br/> (= category 서브 제목) </td>
+      <td> title(= category 제목), <br/> category(= category 서브 제목) </td>
       <td> 4회 </td>
       <td> SubPhoto, BigPhoto 컴포넌트 배치 </td>
     </tr>
