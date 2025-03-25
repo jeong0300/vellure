@@ -101,38 +101,56 @@
     <tr>
       <th>컴포넌트</th>
       <th>Props</th>
+      <th>재사용 횟수</th>
+      <th>역할</th>
     </tr>
     <tr>
       <td>Header</td>
       <td> type(= main, category) </td>
+      <td> 2회</td>
+      <td> main, category 페이지 헤더 </td>
     </tr>
     <tr>
       <td>Carosel</td>
       <td> x </td>
+      <td> 1회 </td>
+      <td> main에 배치되는 큰 이미지 관리 </td>
     </tr>
     <tr>
       <td>Stories</td>
-      <td> title(= category 제목), category(= category 서브 제목) </td>
+      <td> title(= category 제목), <br/> category(= category 서브 제목) </td>
+      <td> 4회 </td>
+      <td> SubPhoto, BigPhoto 컴포넌트 배치 </td>
     </tr>
     <tr>
       <td>BestStories</td>
       <td> x </td>
+      <td> 1회 </td>
+      <td> SubPhoto 컴포넌트 Swiper 사용하여 배치 </td>
     </tr>
      <tr>
       <td>GridNews</td>
       <td> title(= category 제목) </td>
+      <td> 3회 </td>
+      <td> SubPhoto 컴포넌트 가로로 나열 </td>
     </tr>
     <tr>
       <td>PeopleNow</td>
       <td> x </td>
+      <td> 1회 </td>
+      <td> BigPhoto 컴포넌트 가로로 나열 </td>
     </tr>
     <tr>
       <td>Latest</td>
       <td> x </td>
+      <td> 1회 </td>
+      <td> SubPhoto 컴포넌트 그리드로 배치, 오른쪽 요소 sticky로 광고 배치 </td>
     </tr>
     <tr>
       <td>Footer</td>
       <td> x </td>
+      <td> 2회 </td>
+      <td> main, category 페이지 footer </td>
     </tr>
   </table>
 </div>
@@ -187,14 +205,20 @@
     <tr>
       <th>컴포넌트</th>
       <th>Props</th>
+      <th>재사용 횟수</th>
+      <th>역할</th>
     </tr>
     <tr>
       <td>BigPhoto</td>
-      <td> className{= css 제어하기 위함}, bigImgInfo(= 데이터) </td>
+      <td> className{= css 제어하기 위함}, <br/> bigImgInfo(= 데이터) </td>
+      <td> 3회 </td>
+      <td> 이미지와 이미지 안의 데이터 정보 배치 </td>
     </tr>
     <tr>
       <td>Subphoto</td>
-      <td> className(= css 제어하기 위함), subData(= 데이터) </td>
+      <td> className(= css 제어하기 위함), <br/> subData(= 데이터) </td>
+      <td> 7회 </td>
+      <td> 이미지와 이미지 아래에 데이터 정보 배치, className을 통해 반응형 제어 </td>
     </tr>
   </table>
 </div>
@@ -215,10 +239,14 @@
     <tr>
       <th>컴포넌트</th>
       <th>Props</th>
+      <th>재사용 횟수</th>
+      <th>주요 기능</th>
     </tr>
     <tr>
       <td>Header</td>
       <td> type(= main, category) </td>
+      <td> 2회</td>
+      <td> hook 활용하여 상태 및 lifecycle 관리 </td>
     </tr>
   </table>
 </div>
@@ -275,10 +303,14 @@
     <tr>
       <th>컴포넌트</th>
       <th>Props</th>
+      <th>재사용 횟수</th>
+      <th>주요 기능</th>
     </tr>
    <tr>
       <td>Stories</td>
       <td> title(= category 제목), category(= category 서브 제목) </td>
+      <td> 4회 </td>
+      <td> 조건에 따라 SubPhoto, BigPhoto 컴포넌트 배치 </td>
     </tr>
   </table>
 </div>
@@ -308,10 +340,14 @@
     <tr>
       <th>컴포넌트</th>
       <th>Props</th>
+      <th>재사용 횟수</th>
+      <th>주요 기능</th>
     </tr>
     <tr>
       <td>BestStories</td>
       <td> x </td>
+      <td> 1회 </td>
+      <td> Swiper를 활용해 슬라이드 형식으로 이미지 나열 </td>
     </tr>
   </table>
 </div>
