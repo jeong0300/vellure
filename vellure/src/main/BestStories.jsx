@@ -93,15 +93,12 @@ const BestStories = () => {
             slidesPerGroup={4}
             breakpoints={{
               1024: {
-                slidesPerView: 4,
                 slidesPerGroup: 4,
               },
               768: {
-                slidesPerView: 3,
                 slidesPerGroup: 3,
               },
               500: {
-                slidesPerView: 2,
                 slidesPerGroup: 2,
               },
             }}
