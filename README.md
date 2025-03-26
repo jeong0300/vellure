@@ -27,7 +27,7 @@
 
 <br/>
 
-# ✈ 개발 동기
+# 🐈‍⬛ 개발 동기
 
 ####  "Vogue Korea" 웹사이트에서 동일한 요소가 반복되는 것을 보고
 ####  컴포넌트 단위로 나누는 것이 유지보수에 좋을 것 같아 개발하게 되었습니다.
@@ -53,7 +53,8 @@
 
   <h2> 라이브러리 </h2>
   
-  ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+  <img src="https://img.shields.io/badge/react%20router-CA4245?style=for-the-badge&logo=react-router&logoColor=white" alt="React Router Badge" />
+  <img src="https://img.shields.io/badge/swiper-50c7d7?style=for-the-badge&logo=swiper&logoColor=white" alt="Swiper Badge" />
   
 </div>
 
@@ -100,38 +101,56 @@
     <tr>
       <th>컴포넌트</th>
       <th>Props</th>
+      <th>재사용 횟수</th>
+      <th>역할</th>
     </tr>
     <tr>
       <td>Header</td>
       <td> type(= main, category) </td>
+      <td> 2회</td>
+      <td> main, category 페이지 헤더 </td>
     </tr>
     <tr>
       <td>Carosel</td>
       <td> x </td>
+      <td> 1회 </td>
+      <td> main에 배치되는 큰 이미지 관리 </td>
     </tr>
     <tr>
       <td>Stories</td>
-      <td> title(= category 제목), category(= category 서브 제목) </td>
+      <td> title(= category 제목), <br/> category(= category 서브 제목) </td>
+      <td> 4회 </td>
+      <td> SubPhoto, BigPhoto 컴포넌트 배치 </td>
     </tr>
     <tr>
       <td>BestStories</td>
       <td> x </td>
+      <td> 1회 </td>
+      <td> SubPhoto 컴포넌트 Swiper 사용하여 배치 </td>
     </tr>
      <tr>
       <td>GridNews</td>
       <td> title(= category 제목) </td>
+      <td> 3회 </td>
+      <td> SubPhoto 컴포넌트 가로로 나열 </td>
     </tr>
     <tr>
       <td>PeopleNow</td>
       <td> x </td>
+      <td> 1회 </td>
+      <td> BigPhoto 컴포넌트 가로로 나열 </td>
     </tr>
     <tr>
       <td>Latest</td>
       <td> x </td>
+      <td> 1회 </td>
+      <td> SubPhoto 컴포넌트 그리드로 배치, 오른쪽 요소 sticky로 광고 배치 </td>
     </tr>
     <tr>
       <td>Footer</td>
       <td> x </td>
+      <td> 2회 </td>
+      <td> main, category 페이지 footer </td>
     </tr>
   </table>
 </div>
@@ -180,16 +199,54 @@
 
 <br/>
 
-<h2> 📌 Header </h2>
+<h2> 📌 게시글 </h2>
 <div align="center">
   <table>
     <tr>
       <th>컴포넌트</th>
       <th>Props</th>
+      <th>재사용 횟수</th>
+      <th>역할</th>
+    </tr>
+    <tr>
+      <td>BigPhoto</td>
+      <td> className{= css 제어하기 위함}, <br/> bigImgInfo(= 데이터) </td>
+      <td> 3회 </td>
+      <td> 이미지와 이미지 안의 데이터 정보 배치 </td>
+    </tr>
+    <tr>
+      <td>Subphoto</td>
+      <td> className(= css 제어하기 위함), <br/> subData(= 데이터) </td>
+      <td> 7회 </td>
+      <td> 이미지와 이미지 아래에 데이터 정보 배치, className을 통해 반응형 제어 </td>
+    </tr>
+  </table>
+</div>
+
+  ```ruby
+  <BigPhoto className="todayImage" bigImgInfo={bigImgInfo} />
+  <div className="subPhotosContainer">
+    <Subphoto className="todayBox" subData={subData} />
+  </div>
+  ```
+
+<br/>
+
+<h2> 📌 Hook 활용 및 컴포넌트 요약 </h2>
+<h3> 🌟 Header </h3>
+<div align="center">
+  <table>
+    <tr>
+      <th>컴포넌트</th>
+      <th>Props</th>
+      <th>재사용 횟수</th>
+      <th>주요 기능</th>
     </tr>
     <tr>
       <td>Header</td>
       <td> type(= main, category) </td>
+      <td> 2회</td>
+      <td> hook 활용하여 상태 및 lifecycle 관리 </td>
     </tr>
   </table>
 </div>
@@ -225,11 +282,7 @@
           {/* type 이 main 이거나 850px일 때 디자인 통일 */}
 
           {/* 카테고리의 경우 React Router의 `Link` 컴포넌트를 사용-> 페이지 내에서 각 카테고리로 이동 */}
-          <Link
-            to="/video"
-            className="category-link"
-            onClick={moveCategory}
-          >
+          <Link to="/video">
             VIDEO
           </Link>
 
@@ -244,40 +297,87 @@
 
 <br/>
 
-<h2> 📌 Stories </h2>
+<h3> 🌟 Stories </h3>
 <div align="center">
   <table>
     <tr>
       <th>컴포넌트</th>
       <th>Props</th>
+      <th>재사용 횟수</th>
+      <th>주요 기능</th>
     </tr>
    <tr>
       <td>Stories</td>
       <td> title(= category 제목), category(= category 서브 제목) </td>
+      <td> 4회 </td>
+      <td> 조건에 따라 SubPhoto, BigPhoto 컴포넌트 배치 </td>
     </tr>
   </table>
 </div>
 
   ```ruby
-  // React hook을 활용한 상태 관리
-  const [currentLogo, setCurrentLogo] = useState(caroselImg);
+  <div className="PhotosContainer">
+       {(조건1) || (조건2) ? (
+         <>
+           <BigPhoto />
+           <Subphoto />
+         </>
+       ) : (
+         <>
+           <Subphoto />
+           <BigPhoto />
+         </>  
+       )}
+     </div>
+   </div>
+  ```
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 768) {
-        setCurrentLogo(caroselImgMedia);
-      } else {
-        setCurrentLogo(caroselImg);
-      }
-    };
+<br/>
 
-    window.addEventListener("resize", handleResize);
-    handleResize();
+<h3> 🌟 BestStories </h3>
+<div align="center">
+  <table>
+    <tr>
+      <th>컴포넌트</th>
+      <th>Props</th>
+      <th>재사용 횟수</th>
+      <th>주요 기능</th>
+    </tr>
+    <tr>
+      <td>BestStories</td>
+      <td> x </td>
+      <td> 1회 </td>
+      <td> Swiper를 활용해 슬라이드 형식으로 이미지 나열 </td>
+    </tr>
+  </table>
+</div>
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  ```ruby
+  {/* Swiper 활용하여 슬라이드 형식으로 이미지 나열 */}
+  <Swiper
+    modules={[Navigation]}
+    spaceBetween={16}
+    slidesPerView={4}
+    slidesPerGroup={4}
+    breakpoints={{
+      1024: {
+        slidesPerGroup: 4,
+      },
+      768: {
+        slidesPerGroup: 3,
+      },
+      500: {
+        slidesPerGroup: 2,
+      },
+    }}
+    navigation
+  >
+    {bestPhotos.map((bestData, index) => (
+      <SwiperSlide key={index}>
+        <Subphoto className="bestBox" subData={bestData} />
+      </SwiperSlide>
+    ))}
+  </Swiper>
   ```
 
 <br/>
